@@ -1,0 +1,77 @@
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $('select[name=filter_sort_by]').change(function() {
+            $('form.form-sort').submit();
+        });
+
+        $('select[name=filter_order]').change(function() {
+            $('form.form-sort').submit();
+        });
+    });
+</script>
+
+<div class="properties-rows">
+    <div class="filter-wrapper">
+        <div class="filter pull-right">
+            <form action="{{ wp.get_bloginfo('wpurl') }}/properties/" method="get" class="form-sort form-horizontal pull-right">
+                {% if q %}
+                    {% for key, value in q %}
+                        {% if key != 'filter_order' and key != 'filter_sort_by' %}
+                            {% if value is iterable %}
+                                {% for val in value %}
+                                    <input type="hidden" name="{{ key }}[]" value="{{ val }}">
+                                {% endfor %}
+                            {% else %}
+                                <input type="hidden" name="{{ key }}" value="{{ value }}">
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+
+                {% if wp.get_next_posts_link() or wp.get_previous_posts_link() %}
+                    <div class="pager pull-right">
+                        <ul class="pager">
+                            <li>{{ wp.previous_posts_link('<i class="icon icon-normal-left-arrow-small"></i>', 0) }}
+                            <li>{{ wp.next_posts_link('<i class="icon icon-normal-right-arrow-small"></i>', 0) }}</li>
+                        </ul>
+                    </div><!-- /.pager -->
+                {% endif %}
+
+                <div class="control-group pull-right">
+                    <div class="controls">
+                        <select name="filter_sort_by" id="inputSortBy">
+                            <option value="title" {% if default_sort == 'title'%}selected="selected"{% endif %}>{{ wp.__('Name', 'aviators') }}</option>
+                            <option value="date" {% if default_sort == 'date' %}selected="selected"{% endif %}>{{ wp.__('Date', 'aviators') }}</option>
+                            <option value="price" {% if default_sort == 'price' %}selected="selected"{% endif %}>{{ wp.__('Price', 'aviators') }}</option>
+
+                            {% if wp.aviators_settings_get_value('properties', 'filter_visibility', 'hide_beds') != 'on' %}
+                                <option value="beds" {% if default_sort == 'beds' %}selected="selected"{% endif %}>{{ wp.__('Bedrooms', 'aviators') }}</option>
+                            {% endif %}
+
+                            {% if wp.aviators_settings_get_value('properties', 'filter_visibility', 'hide_baths') != 'on' %}
+                                <option value="baths" {% if default_sort == 'baths' %}selected="selected"{% endif %}>{{ wp.__('Bathrooms', 'aviators') }}</option>
+                            {% endif %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="control-group pull-right">
+                    <div class="controls">
+                        <select id="inputOrder" name="filter_order" class="chosen">
+                            <option value="DESC" {% if q.filter_order == 'DESC' %}selected="selected"{% endif %}>{{ wp.__('Descending', 'aviators') }}</option>
+                            <option value="ASC" {% if q.filter_order == 'ASC' %}selected="selected"{% endif %}>{{ wp.__('Ascending', 'aviators') }}</option>
+                        </select>
+                    </div><!-- /.controls -->
+                </div><!-- /.control-group -->
+            </form>
+
+            {#<a href="" class="show-rows pull-right">#}
+                {#<i class="icon icon-normal-order"></i>#}
+            {#</a>#}
+            {##}
+            {#<a href="" class="show-matrix pull-right">#}
+                {#<i class="icon icon-normal-four-rectangles"></i>#}
+            {#</a>#}
+        </div><!-- /.filter -->
+    </div>
+</div><!-- /.properties-rows -->

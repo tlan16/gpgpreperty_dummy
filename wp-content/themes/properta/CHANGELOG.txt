@@ -1,0 +1,32 @@
+CHANGELOG
+
+------------------------------------------------------------------------------------------------------------------------
+March 25, 2014 - 2.1 Update
+------------------------------------------------------------------------------------------------------------------------
+Update:
+Feature - Added CHANGELOG.txt
+Feature - Enquire form now has options to whom will the email sent
+Feature - Prior to submitting property to from front-end submission Legal Agreement can be displayed
+Feature - Default sorting option can be set in settings
+Fix - Session start warning removed
+
+Documentation update:
+ - How to add custom map icons
+
+
+"properta" Folder
++1 -1 assets/css/properta.css
++7 -0 assets/scss/helpers/_submission.scss
++2 -1 functions.php
++1 -1 style.css
++1 -0 templates/properties/property-row.twig
++11 -2 templates/properties/sort.twig
++26 -3 templates/submission/add.twig
+
+
+"properta/aviators" Folder
++68 -50 plugins/properties/enquire.php
++32 -0 plugins/properties/settings.json
++25 -13 plugins/submission/renderers.php
++30 -0 plugins/submission/settings.json
++25 -4 plugins/submission/templates/submission/add.twig

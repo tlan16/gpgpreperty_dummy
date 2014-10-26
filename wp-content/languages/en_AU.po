@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2014-09-03 00:01:20+0000\n"
+"PO-Revision-Date: 2014-09-06 00:56:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -222,7 +222,7 @@ msgstr "Press return or enter to expand"
 
 #: wp-includes/class-wp-customize-panel.php:182
 msgid "You are customizing %s"
-msgstr "You are customizing %s"
+msgstr "You are customising %s"
 
 #: wp-includes/class-wp-customize-widgets.php:438
 msgid "Widgets are independent sections of content that can be placed into widgetized areas provided by your theme (commonly called sidebars)."
@@ -982,7 +982,7 @@ msgstr "Randomising uploaded headers"
 
 #: wp-includes/class-wp-customize-control.php:941
 msgid "Randomizing suggested headers"
-msgstr "Randomizing suggested headers"
+msgstr "Randomising suggested headers"
 
 #: wp-includes/class-wp-customize-control.php:957
 msgid "No image set"
