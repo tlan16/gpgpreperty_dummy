@@ -1,0 +1,4 @@
+mysql -u root -proot -e "DROP DATABASE IF EXISTS gpgproperty";
+mysql -u root -proot 
+CREATE DATABASE `gpgproperty` DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+mysql -u root -proot gpgproperty < gpgproperty.sql
